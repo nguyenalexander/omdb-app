@@ -1,0 +1,72 @@
+<% include ../partials/header %>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="container">
+        <div class="jumbotron">
+          <h1> <%=Title%></h1>
+          <small><%=Year%> - <%=Director%> - <%=Genre%></small>
+          <hr>
+        </div>
+        <div class="row">
+         <div class="col-sm-4 right">
+          <a><img src="<%=Poster%>"></a>
+        </div>
+        <div class="col-md-8 left">
+          <p>Cast: <%=Actors%> </p>
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">Rotten Tomatoes</h4>
+              <div class="progress">
+              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%=tomatoMeter%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=tomatoMeter%>%">
+                  <span>Rotten Tomatoes Rating: <%=tomatoMeter%>%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">IMDB</h4>
+              <div class="progress">
+              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%=imdbRating*10%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=imdbRating*10%>%">
+                  <span>IMDB Rating: <%=imdbRating*10%>%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">MetaCritic</h4>
+              <div class="progress">
+              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%=Metascore%>%" aria-valuemin="0" aria-valuemax="100" style="width: <%=Metascore%>%">
+                  <span>MetaCritic Rating: <%=Metascore%>%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <p> <%=Plot%> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+<% include ../partials/footer %>

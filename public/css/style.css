@@ -1,0 +1,104 @@
+.container {
+  width: 100%;
+}
+.container-fluid {
+  width: 100%;
+  height: 100%;
+}
+.indexrow {
+  width: 100%;
+  height: 100%;
+}
+.indexcol {
+  width: 100%;
+  height: 100%;
+}
+.indexbody {
+  background: black;
+}
+.indexbody>.navbar-default {
+  background-color: rgba(147, 135, 126, 0.94);
+}
+#carousel {
+  height: 100%;
+  width: 100%;
+}
+.carousel-inner {
+  height:100%;
+  width: 100%;
+}
+.carousel .item {
+  height:100%;
+  width: 100%;
+}
+.carousel .item img {
+  height:100%;
+  width: 100%;
+}
+.jumbotron {
+  background-color: rgba(22, 9, 0, 0.5);
+  font-family: Oswald;
+}
+.jumbotron h1 {
+  font-size: 40px;
+  color: rgba(255, 247, 235, .9);
+}
+.jumbotron p {
+  font-size: 18px;
+  color: rgba(255, 247, 235, .9);
+}
+
+.jumbotron>hr {
+  border-top-color: rgba(255, 247, 235, .9);
+}
+
+small {
+  font-size: 26px;
+  color: rgba(255, 247, 235, .9);
+}
+
+body {
+  font-size: 18px;
+  background: rgba(255, 247, 235, 0.5);
+  color: rgba(0, 36, 45, 1);
+  min-height: 1000px;
+  position: relative;
+  z-index: 10;
+}
+
+.right p {
+  margin-top: 10px;
+}
+
+.navbar-default {
+  background-color: rgba(22, 9, 0, 0.5);
+  border: none;
+  border-radius: 0;
+}
+
+.navbar-default .navbar-brand {
+  background-color: rgba(22, 9, 0, 0.3);
+  color: rgba(255, 255, 235, 0.9);
+  font-family: Oswald;
+  position: fixed;
+  z-index: 1;
+}
+
+a {
+  color: rgba(0, 36, 45, 1);
+}
+
+hr {
+  border-top: 1px solid rgba(0, 36, 45, 1);
+}
+
+legend {
+  border-bottom: 1px solid rgba(0, 36, 45, 1);
+}
+
+.progress-bar-success {
+  background-color: rgba(0, 36, 45, 1);
+}
+.progress {
+  background-color: rgba(128, 125, 125, 0.12);
+}

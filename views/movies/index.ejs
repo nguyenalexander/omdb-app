@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="jumbotron">
+        <h1> Search Results </h1>
+        <div class="container">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>title</th>
+                <th>year</th>
+                <th>imdb id</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% Search.forEach(function(obj, index){ %>
+              <tr>
+                <td><a href='/movies/<%=obj.imdbID%>'> <%=obj.Title%></a></td>
+                <td><%=obj.Year%></td>
+                <td><%=obj.imdbID%></td>
+              </tr>
+              <% })  %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<% include ../partials/footer %>
