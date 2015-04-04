@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var linksCtrl = require('./controllers/movies');
+var moviesCtrl = require('./controllers/movies');
 var db = require('./models');
 var bodyParser = require("body-parser")
 
@@ -13,7 +13,6 @@ app.get('/', function(req,res){
   res.render('index');
 })
 
-app.listen(process.env.PORT || 3000){
+app.listen(process.env.port || 3000, function(){
   console.log("Hello, server is up and running.");
-}
 })
