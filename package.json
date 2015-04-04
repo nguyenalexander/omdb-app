@@ -13,7 +13,11 @@
     "cheerio": "^0.19.0",
     "ejs": "^2.3.1",
     "express": "^4.12.3",
+    "pg": "^4.3.0",
+    "pg-hstore": "^2.3.2",
     "request": "^2.54.0",
-    "require": "^2.4.17"
+    "require": "^2.4.17",
+    "sequelize": "^2.0.5",
+    "sequelize-cli": "^1.6.0"
   }
 }
