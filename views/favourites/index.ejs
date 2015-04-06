@@ -3,21 +3,29 @@
 <div class="container favourites-container">
   <div class="row">
     <div class="col-sm-12">
-        <h1>Your Favourites:</h1>
+      <h1>Your Favourites:</h1>
     </div>
   </div>
   <div class="row favourites-row">
     <div class="col-sm-12">
       <% favourites.favourite.forEach(function(obj) { %>
-    <div class="item">
-      <a href="/movies/<%=obj.imdbID%>">
-        <img class="posters" src="<%=obj.Poster%>">
-        <div class="overlay">
-          <h2><%=obj.Title%></h2>
-          <p><%=obj.Year%></p>
+      <div class="item">
+        <div class="delete-button">
+          <form type="submit" action="/favourites/delete" method="POST">
+            <div class="form-group">
+              <input class="hidden" value="<%=obj.imdbId%>" name="delete">
+              <input type="image" src="http://upload.wikimedia.org/wikipedia/commons/4/47/X_solid_red_25.gif" value="delete this item">
+            </div>
+          </form>
         </div>
-      </a>
-    </div>
+        <a class="poster" href="/movies/<%=obj.imdbId%>">
+          <img class="posters" src="<%=obj.poster%>">
+          <div class="overlay">
+            <h2><%=obj.title%></h2>
+            <p><%=obj.year%></p>
+          </div>
+        </a>
+      </div>
       <% }) %>
     </div>
   </div>

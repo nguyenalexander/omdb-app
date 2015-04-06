@@ -11,74 +11,79 @@
           </div>
           <div class="row">
            <div class="col-sm-4 right">
-            <div>
-              <a><img src="<%=Poster%>"></a>
-              <form type="submit" class="form" action="/favourites/" method="post">
-                <div class="form-group">
-                  <form class="form" action="/favourites" method="post">
-                    <input type="hidden" name="imdbID" value="<%= imdbID %>">
-                    <input type="hidden" name="title" value="<%= Title %>">
-                    <input type="hidden" name="year" value="<%= Year %>">
-                    <input type="hidden" name="poster" value="<%= Poster %>">
-                    <input id="favourite-submit" type="submit" value="Add to Favourites" class="btn btn-default">
-                  </div>
+            <div class="item">
+              <div class="fav-button">
+                <form class="form" action="/favourites/" method="post">
+                  <input type="hidden" name="imdbID" value="<%= imdbID %>">
+                  <input type="hidden" name="title" value="<%= Title %>">
+                  <input type="hidden" name="year" value="<%= Year %>">
+                  <input type="hidden" name="poster" value="<%= Poster %>">
+                  <button type="submit hidden" class="favourite-btn">
+                  <span class="glyphicon glyphicon-star"></span>
+                  </button>
                 </form>
               </div>
+              <div class="poster">
+                <img class="posters" src="<%=Poster%>">
+                <div class="overlay overlay-movie">
+                </div>
+              </div>
             </div>
-            <div class="col-md-8 left">
-              <p>Cast: <%=Actors%> </p>
-              <div class="media">
-                <div class="media-left">
-                  <a href="#">
-                    <img class="media-object">
-                  </a>
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading">Rotten Tomatoes</h4>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%=tomatoMeter%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=tomatoMeter%>%">
-                      <span>Rotten Tomatoes Rating: <%=tomatoMeter%>%</span>
-                    </div>
+          </div>
+          <div class="col-md-8 left">
+            <p>Cast: <%=Actors%> </p>
+            <div class="media">
+              <div class="media-left">
+                <a href="#">
+                  <img class="media-object">
+                </a>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading">Rotten Tomatoes</h4>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%=tomatoMeter%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=tomatoMeter%>%">
+                    <span>Rotten Tomatoes Rating: <%=tomatoMeter%>%</span>
                   </div>
                 </div>
               </div>
-              <div class="media">
-                <div class="media-left">
-                  <a href="#">
-                    <img class="media-object">
-                  </a>
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading">IMDB</h4>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%=imdbRating*10%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=imdbRating*10%>%">
-                      <span>IMDB Rating: <%=imdbRating*10%>%</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="media">
-                <div class="media-left">
-                  <a href="#">
-                    <img class="media-object">
-                  </a>
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading">MetaCritic</h4>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%=Metascore%>%" aria-valuemin="0" aria-valuemax="100" style="width: <%=Metascore%>%">
-                      <span>MetaCritic Rating: <%=Metascore%>%</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr>
-              <p> <%=Plot%> </p>
             </div>
+            <div class="media">
+              <div class="media-left">
+                <a href="#">
+                  <img class="media-object">
+                </a>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading">IMDB</h4>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%=imdbRating*10%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=imdbRating*10%>%">
+                    <span>IMDB Rating: <%=imdbRating*10%>%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="media">
+              <div class="media-left">
+                <a href="#">
+                  <img class="media-object">
+                </a>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading">MetaCritic</h4>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%=Metascore%>%" aria-valuemin="0" aria-valuemax="100" style="width: <%=Metascore%>%">
+                    <span>MetaCritic Rating: <%=Metascore%>%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <p> <%=Plot%> </p>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </body>
 <% include ../partials/footer %>

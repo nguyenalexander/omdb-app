@@ -14,13 +14,31 @@
   display: inline-block;
   padding-bottom: 5px;
 }
-#favourite-submit {
-  width: 300px;
-}
 
 .posters {
   height: 445px;
   width: 300px;
+}
+
+.delete-button {
+  position:absolute;
+  display: none;
+  z-index: 99;
+}
+
+.fav-button {
+  position:absolute;
+  display: none;
+  z-index: 99;
+}
+
+.favourite-btn {
+  background: rgba(0,0,0,0);
+  border: none;
+}
+
+.glyphicon {
+  color: white;
 }
 
 .overlay {

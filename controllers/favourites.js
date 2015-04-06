@@ -8,8 +8,9 @@ favourites.use(bodyParser.urlencoded({extended: false}));
 var renderDB = function (res) {
   db.favourite.findAll().then(function(favourites) {
     var favouritesArray = favourites.map(function(favourite) {
-      return {imdbID: favourite.imdbId, Title: favourite.title, Year: favourite.year, Poster: favourite.poster};
+      return favourite.get();
     });
+    console.log(favouritesArray)
     res.locals.favourites = {favourite: favouritesArray};
     res.render("favourites/index");
   })
@@ -27,7 +28,8 @@ favourites.post('/', function(req,res){
 
 
 favourites.post("/delete", function(req, res) {
-  db.favourite.destroy({where: {imdbId:req.body.imdbID}}).then(function() {
+  console.log(req.body.delete)
+  db.favourite.destroy({where: {imdbId:req.body.delete}}).then(function() {
     renderDB(res);
   });
 });

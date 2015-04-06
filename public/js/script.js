@@ -1,0 +1,14 @@
+$(function(){
+  $('.item').on('mouseover',function(){
+    $(this).children('.delete-button').show();
+  })
+  $('.item').on('mouseout',function(){
+    $(this).children('.delete-button').hide();
+  })
+  $('.item').on('mouseover',function(){
+    $(this).children('.fav-button').show();
+  })
+  $('.item').on('mouseout',function(){
+    $(this).children('.fav-button').hide();
+  })
+})
