@@ -30,6 +30,10 @@ router.get('/:id', function(req,res){
       res.send('Sorry, you have an error!')
   }
 
+router.get("/favourites", function(req, res) {
+  res.render("movies/favourites", {favourite:[]});
+});
+
 })
 })
 

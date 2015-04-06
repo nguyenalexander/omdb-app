@@ -1,6 +1,95 @@
 .container {
   width: 100%;
 }
+.favourites-row {
+  padding-left: 3%;
+}
+.favourites-container>a{
+  padding-left: 1%;
+}
+.favourites-container h1{
+  padding-bottom: 1%;
+}
+.item {
+  display: inline-block;
+  padding-bottom: 5px;
+}
+#favourite-submit {
+  width: 300px;
+}
+
+.posters:hover {
+  -webkit-filter: blur(5px);
+}
+
+.overlay {
+  background: rgba(9, 9, 0, 0.75);
+  font-family: Oswald;
+  color: rgba(255, 247, 235, .9);
+  font-size: 1em;
+  opacity: 0;
+  overflow: hidden;
+  padding: 3.75em 3em;
+  position: absolute;
+  text-align: center;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  width: 300px;
+  height: 445px;
+  margin-top: -445px;
+}
+
+.item:hover .overlay {
+  opacity: 1;
+}
+.item:hover .posters {
+  -webkit-filter: blur(5px);
+  -webkit-transition: 0.2s;
+}
+
+.overlay:after,
+.overlay:before {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  bottom: 1em;
+  content: '';
+  left: 1em;
+  opacity: 0;
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+  -webkit-transition: 0.6s 0.2s;
+  transition: 0.6s 0.2s;
+}
+
+.overlay:before {
+  border-bottom: none;
+  border-top: none;
+  left: 2em;
+  right: 2em;
+}
+
+.overlay:after {
+  border-left: none;
+  border-right: none;
+  bottom: 2em;
+  top: 2em;
+}
+
+.overlay:hover:after,
+.overlay:hover:before {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.overlay h2 { margin-top: 0; }
+
+.overlay p { margin-bottom: 1.5em; }
+
 .container-fluid {
   width: 100%;
   height: 100%;
@@ -13,12 +102,7 @@
   width: 100%;
   height: 100%;
 }
-.indexbody {
-  background: black;
-}
-.indexbody>.navbar-default {
-  background-color: rgba(147, 135, 126, 0.94);
-}
+
 #carousel {
   height: 100%;
   width: 100%;
@@ -59,9 +143,8 @@ small {
 
 body {
   font-size: 18px;
-  background: rgba(255, 247, 235, 0.5);
+  background: rgba(218, 205, 185, 0.5);
   color: rgba(0, 36, 45, 1);
-  min-height: 1000px;
   position: relative;
   z-index: 10;
 }

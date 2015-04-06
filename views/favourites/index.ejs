@@ -1,0 +1,27 @@
+
+<% include ../partials/header %>
+<div class="container favourites-container">
+  <div class="row">
+    <div class="col-sm-12">
+        <h1>Your Favourites:</h1>
+    </div>
+  </div>
+  <div class="row favourites-row">
+    <div class="col-sm-12">
+      <% favourites.favourite.forEach(function(obj) { %>
+    <div class="item">
+      <a href="/movies/<%=obj.imdbID%>">
+        <img class="posters" src="<%=obj.Poster%>">
+        <div class="overlay">
+          <h2><%=obj.Title%></h2>
+          <p><%=obj.Year%></p>
+        </div>
+      </a>
+    </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
+
+<% include ../partials/footer %>
+

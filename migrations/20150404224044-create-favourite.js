@@ -9,7 +9,7 @@ module.exports = {
         type: DataTypes.INTEGER
       },
       imdbId: {
-        type: DataTypes.INTEGER
+        type: DataTypes.STRING
       },
       title: {
         type: DataTypes.STRING
