@@ -12,14 +12,15 @@
           <div class="row">
            <div class="col-sm-4 right">
             <div class="item">
+            <span class="fav-glyph-after glyphicon"></span>
               <div class="fav-button">
-                <form class="form" action="/favourites/" method="post">
+                <form class="form favourite-form" action="/favourites/">
                   <input type="hidden" name="imdbID" value="<%= imdbID %>">
                   <input type="hidden" name="title" value="<%= Title %>">
                   <input type="hidden" name="year" value="<%= Year %>">
                   <input type="hidden" name="poster" value="<%= Poster %>">
                   <button type="submit hidden" class="favourite-btn">
-                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="fav-glyph glyphicon glyphicon-star-empty"></span>
                   </button>
                 </form>
               </div>

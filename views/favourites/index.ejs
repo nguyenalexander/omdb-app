@@ -10,15 +10,14 @@
     <div class="col-sm-12">
       <% favourites.favourite.forEach(function(obj) { %>
       <div class="item">
-        <div class="delete-button">
-          <form type="submit" action="/favourites/delete" method="POST">
+        <div class="dlt-overlay">
+          <a href="/favourites/">
             <div class="form-group">
-              <input class="hidden" value="<%=obj.imdbId%>" name="delete">
-              <input type="image" src="http://upload.wikimedia.org/wikipedia/commons/4/47/X_solid_red_25.gif" value="delete this item">
+              <a href="/favourites/<%=obj.imdbId%>" class="dlt-btn btn"><i class="glyphicon glyphicon-remove"></i></a>
             </div>
-          </form>
+          </a>
         </div>
-        <a class="poster" href="/movies/<%=obj.imdbId%>">
+        <a class="poster" href="/favourites/<%=obj.imdbId%>">
           <img class="posters" src="<%=obj.poster%>">
           <div class="overlay">
             <h2><%=obj.title%></h2>

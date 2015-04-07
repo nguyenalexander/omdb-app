@@ -20,18 +20,28 @@ favourites.get('/', function(req,res){
   renderDB(res)
 })
 
-favourites.post('/', function(req,res){
-  db.favourite.findOrCreate({where: {title:req.body.title,year:req.body.year,poster:req.body.poster,imdbId:req.body.imdbID}}).spread(function(data){
-    renderDB(res)
+favourites.get('/:id', function(req,res){
+  db.favourite.find({where:{imdbId:req.params.id}}).then(function(data){
+    var movieData = data.get();
+    res.redirect("/movies/"+movieData.imdbId)
   })
 })
 
+favourites.post('/', function(req,res){
+  db.favourite.findOrCreate({where: {title:req.body.title,year:req.body.year,poster:req.body.poster,imdbId:req.body.imdbID}}).spread(function(data){
+    renderDB(res)
+  }).then(function(data){
+    res.send(data);
+  })
+})
 
-favourites.post("/delete", function(req, res) {
-  console.log(req.body.delete)
-  db.favourite.destroy({where: {imdbId:req.body.delete}}).then(function() {
-    renderDB(res);
-  });
+favourites.delete("/:id", function(req,res) {
+  db.favourite.find({where:{imdbId:req.params.id}}).then(function(data){
+    var data = data.get();
+    db.favourite.destroy({where:{imdbId:data.imdbId}}).then(function() {
+      res.send({result:true})
+    });
+  })
 });
 
 module.exports = favourites;
