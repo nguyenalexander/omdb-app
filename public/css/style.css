@@ -39,13 +39,10 @@
 
 .glyphicon {
   color: white;
-}
-
-.glyphicon-star {
-  position:absolute;
-  display: visible;
+  position: absolute;
   z-index: 99;
 }
+
 thead {
   color: rgba(255, 255, 235, 0.9);
 }
@@ -76,6 +73,10 @@ thead {
 .item:hover .posters {
   -webkit-filter: blur(5px);
   -webkit-transition: 0.2s;
+}
+.item:hover .glyphicon {
+  transition: 0.6s;
+  -webkit-transition: 0.6s;
 }
 
 .overlay:after,

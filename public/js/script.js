@@ -15,10 +15,10 @@ $(function(){
     }
   })
 
-  $('.favourite-form').on('submit', function(e){
+  $('.favourite-form').on('click', function(e){
     e.preventDefault();
     $('.fav-glyph').removeClass('glyphicon-star-empty');
-    $('.fav-glyph-after').addClass('glyphicon-star')
+    $('.fav-glyph-after').addClass('glyphicon-star').css('display','visible');
     var formUrl = $(this).attr('action')
     var thisData = $(this).serialize();
     $.ajax({
@@ -30,22 +30,21 @@ $(function(){
     })
   })
 
-if ($('.fav-glyph-after').hasClass('glyphicon-star')){
+
   $('.fav-glyph-after').on('click', function(e){
     e.preventDefault();
-    $('.fav-glyph').removeClass('glyphicon-star');
-    $('.fav-glyph-after').addClass('glyphicon-star-empty')
-    var formUrl = $(this).nthChild(1).nthChild(1).attr('action')
-    var thisData = $(this).serialize();
+    $('.fav-glyph').addClass('glyphicon-star-empty');
+    $('.fav-glyph-after').removeClass('glyphicon-star')
+    var formUrl = $('.fav-glyph-after').closest('.favourite-form').attr('action');
+    console.log('This is the returned value of formUrl:',formUrl);
     $.ajax({
       method: 'DELETE',
-      url: formUrl,
-      data: thisData
+      url: formUrl
     }).done(function(data){
-      console.log('save complete')
+      console.log('deletion complete')
     })
   })
-}
+
 
   $('.item').on('mouseover',function(){
     $(this).children('.dlt-overlay').show();

@@ -10,7 +10,6 @@ var renderDB = function (res) {
     var favouritesArray = favourites.map(function(favourite) {
       return favourite.get();
     });
-    console.log(favouritesArray)
     res.locals.favourites = {favourite: favouritesArray};
     res.render("favourites/index");
   })
@@ -28,8 +27,9 @@ favourites.get('/:id', function(req,res){
 })
 
 favourites.post('/', function(req,res){
-  db.favourite.findOrCreate({where: {title:req.body.title,year:req.body.year,poster:req.body.poster,imdbId:req.body.imdbID}}).spread(function(data){
-    renderDB(res)
+  db.favourite.findOrCreate({where: {title:req.body.title,year:req.body.year,poster:req.body.poster,imdbId:req.body.imdbID}})
+  .spread(function(data,created){
+    renderDB(res, created)
   }).then(function(data){
     res.send(data);
   })
