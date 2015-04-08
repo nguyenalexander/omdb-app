@@ -1,0 +1,50 @@
+<% include ../partials/header %>
+<div class="container favourites-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>
+        <small>Comments on </small>
+        <%=data.title%>
+        <small class="comment-counter">Total Comments: <%=commentCounter%></small>
+      </h1>
+    </div>
+  </div>
+  <div class="row favourites-row">
+    <div class="col-sm-4">
+      <div class="item comment-item">
+        <a class="poster" href="/favourites/<%=data.id%>">
+          <img class="posters" src="<%=data.poster%>">
+          <div class="overlay">
+            <h2><%=data.title%></h2>
+            <p><%=data.year%></p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <section class="comments">
+       <div class="detailBox">
+         <div class="comment-header">
+         </div>
+         <div class="commentsBox">
+          <ul class="commentList">
+           <% comments.forEach(function(item){ %>
+           <li> <%=item.commentBody%> </li>
+           <% }) %>
+         </ul>
+       </div>
+     </div>
+   </section>
+   <section class="input">
+    <form class="form comment-submit" action="/favourites/<%=data.id%>/comments" type="submit">
+      <div class="form-group">
+        <input class="form-control comment-form" name="comment" type="text" placeholder="Submit a comment here">
+      </div>
+    </form>
+  </section>
+</div>
+</div>
+</div>
+
+<% include ../partials/footer %>
+

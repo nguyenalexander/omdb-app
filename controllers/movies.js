@@ -22,10 +22,8 @@ router.get('/:id', function(req,res){
   var idQueryString = req.params.id;
   var url = "http://www.omdbapi.com/?i="+idQueryString+"&tomatoes=true&plot=full";
   request(url, function(error, response, body){
-  // db.favourite.findAll({where:{imdbId:req.params.id}}).then(function(e){
-  //   var faved = !!
-  // })
   var idMovies = JSON.parse(body);
+  console.log(idMovies)
   if (!error && response.statusCode == 200){
     res.render('movies/show', idMovies);
   }

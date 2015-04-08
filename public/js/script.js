@@ -2,7 +2,6 @@ $(function(){
   $('.dlt-btn').on('click', function(e){
     e.preventDefault();
     var dlt = $(this);
-    if(confirm('Are you sure you want to remove this item?')){
       var dlturl = $(this).attr('href');
       $.ajax({
         method: 'DELETE',
@@ -12,7 +11,6 @@ $(function(){
           $(this).remove();
         })
       })
-    }
   })
 
   $('.favourite-form').on('click', function(e){
@@ -30,6 +28,26 @@ $(function(){
     })
   })
 
+  $('.comment-submit').on('submit',function(e){
+    e.preventDefault();
+    var commentUrl = $(this).attr('action')
+    var commentData = $(this).serialize();
+    $.ajax({
+      method: 'POST',
+      url: commentUrl,
+      data: commentData
+    }).done(function(data){;
+      console.log('comment complete', data)
+      location.href=commentUrl;
+      console.log(location.href)
+    })
+  })
+
+
+      // success: function(onSuccess){
+      //
+      // }
+
 
   $('.fav-glyph-after').on('click', function(e){
     e.preventDefault();
@@ -45,6 +63,10 @@ $(function(){
     })
   })
 
+  $('.glyphicon-edit').on('click', function(e){
+    var editUrl = $(this).parent().attr('action');
+    location.href = editUrl;
+  })
 
   $('.item').on('mouseover',function(){
     $(this).children('.dlt-overlay').show();

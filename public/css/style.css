@@ -15,6 +15,29 @@
   padding-bottom: 5px;
 }
 
+.comment-item {
+  display: inline-block;
+  margin-left: 15%;
+}
+
+.comments {
+  height: 450px;
+  max-height: 450px;
+  overflow: auto;
+}
+
+.comment-submit {
+  width: 95%;
+}
+
+.comment-counter {
+  margin-left: 58%;
+}
+
+.navbar-link {
+  margin-left: 17%;
+}
+
 .posters {
   height: 445px;
   width: 300px;
@@ -23,6 +46,12 @@
 .dlt-overlay {
   position:absolute;
   display: none;
+  z-index: 99;
+}
+
+.comment-overlay {
+  position: absolute;
+  margin-left: 22%;
   z-index: 99;
 }
 
@@ -40,6 +69,12 @@
 .glyphicon {
   color: white;
   position: absolute;
+  z-index: 99;
+}
+
+.glyphicon-remove {
+  color: white;
+  position: relative;
   z-index: 99;
 }
 

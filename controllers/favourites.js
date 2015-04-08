@@ -15,14 +15,25 @@ var renderDB = function (res) {
   })
 }
 
+// var renderDBdata = function (req,res) {
+//   db.favourite.find({where:{id:req.params.id}}).then(function(favourites) {
+//     var favouritesArray = favourites.map(function(favourite) {
+//       return favourite.get();
+//     });
+//     console.log(favouritesArray)
+//     res.locals.data = {favourite: favouritesArray};
+//     res.render("favourites/comments");
+//   })
+// }
+
 favourites.get('/', function(req,res){
   renderDB(res)
 })
 
 favourites.get('/:id', function(req,res){
-  db.favourite.find({where:{imdbId:req.params.id}}).then(function(data){
+  db.favourite.find({where:{id:req.params.id}}).then(function(data){
     var movieData = data.get();
-    res.redirect("/movies/"+movieData.imdbId)
+    res.redirect("/movies/"+movieData.id)
   })
 })
 
@@ -35,6 +46,30 @@ favourites.post('/', function(req,res){
   })
 })
 
+favourites.post('/:id/comments', function(req,res){
+  db.favourite.find({where:{id:req.params.id}})
+  .then(function(createdMovie){
+    createdMovie.createComment({commentBody: req.body.comment})
+    .then(function(createdComment){
+      console.log("this is the created comment:",createdComment)
+      res.send(createdComment)
+    })
+  })
+})
+
+favourites.get('/:id/comments', function(req,res){
+  db.favourite.find({where:{id:req.params.id}})
+  .then(function(createdMovie){
+    db.comment.findAll({where:{favouriteId:createdMovie.id}})
+    .then(function(allComments){
+      db.comment.count({where:{favouriteId:createdMovie.id}})
+      .then(function(commentCount){
+        res.locals.commentCounter = commentCount;
+        res.render('favourites/comments', {data: createdMovie, comments: allComments})
+      })
+    })
+  })
+})
 favourites.delete("/:id", function(req,res) {
   db.favourite.find({where:{imdbId:req.params.id}}).then(function(data){
     var data = data.get();
