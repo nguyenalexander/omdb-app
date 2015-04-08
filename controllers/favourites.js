@@ -33,7 +33,7 @@ favourites.get('/', function(req,res){
 favourites.get('/:id', function(req,res){
   db.favourite.find({where:{id:req.params.id}}).then(function(data){
     var movieData = data.get();
-    res.redirect("/movies/"+movieData.id)
+    res.redirect("/movies/"+movieData.imdbId)
   })
 })
 

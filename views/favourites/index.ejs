@@ -11,7 +11,7 @@
       <% favourites.favourite.forEach(function(obj) { %>
       <div class="item">
         <div class="dlt-overlay">
-          <a href="/favourites/">
+          <a href="/favourites/<%=obj.id%>">
             <div class="form-group">
               <a href="/favourites/<%=obj.id%>" class="dlt-btn btn"><i class="glyphicon glyphicon-remove"></i></a>
             </div>
