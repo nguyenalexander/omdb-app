@@ -3,6 +3,7 @@ $(function(){
     e.preventDefault();
     var dlt = $(this);
       var dlturl = $(this).attr('href');
+      console.log(dlturl)
       $.ajax({
         method: 'DELETE',
         url: dlturl

@@ -71,9 +71,9 @@ favourites.get('/:id/comments', function(req,res){
   })
 })
 favourites.delete("/:id", function(req,res) {
-  db.favourite.find({where:{imdbId:req.params.id}}).then(function(data){
+  db.favourite.find({where:{id:req.params.id}}).then(function(data){
     var data = data.get();
-    db.favourite.destroy({where:{imdbId:data.imdbId}}).then(function() {
+    db.favourite.destroy({where:{id:data.id}}).then(function() {
       res.send({result:true})
     });
   })
