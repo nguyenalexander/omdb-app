@@ -16,6 +16,10 @@ app.use(function(req,res,next){
   next();
 });
 
+app.get('/', function(req,res){
+  res.redirect('/main')
+})
+
 app.use('/main', require('./controllers/main'))
 app.use('/movies', require('./controllers/movies'));
 app.use('/favourites', require('./controllers/favourites'));
