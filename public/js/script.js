@@ -16,8 +16,8 @@ $(function(){
 
   $('.favourite-form').on('click', function(e){
     e.preventDefault();
-    $('.fav-glyph').removeClass('glyphicon-star-empty');
-    $('.fav-glyph-after').addClass('glyphicon-star').css('display','visible');
+    $('.fav-glyph').hide();
+    $('.fav-glyph-after').show();
     var formUrl = $(this).attr('action')
     var thisData = $(this).serialize();
     $.ajax({
@@ -52,8 +52,8 @@ $(function(){
 
   $('.fav-glyph-after').on('click', function(e){
     e.preventDefault();
-    $('.fav-glyph').addClass('glyphicon-star-empty');
-    $('.fav-glyph-after').removeClass('glyphicon-star')
+    $('.fav-glyph').show();
+    $('.fav-glyph-after').hide();
     var formUrl = $('.fav-glyph-after').closest('.favourite-form').attr('action');
     console.log('This is the returned value of formUrl:',formUrl);
     $.ajax({

@@ -1,9 +1,6 @@
 var express = require('express');
-var favourites = express.Router();
+var router = express.Router();
 var db = require('../models');
-var request = require('request');
-var bodyParser = require('body-parser')
-favourites.use(bodyParser.urlencoded({extended: false}));
 
 var renderDB = function (res) {
   db.favourite.findAll().then(function(favourites) {
@@ -26,38 +23,36 @@ var renderDB = function (res) {
 //   })
 // }
 
-favourites.get('/', function(req,res){
+router.get('/', function(req,res){
+  req.session.lastPage= "/"
   renderDB(res)
 })
 
-favourites.get('/:id', function(req,res){
+router.get('/:id', function(req,res){
   db.favourite.find({where:{id:req.params.id}}).then(function(data){
     var movieData = data.get();
     res.redirect("/movies/"+movieData.imdbId)
   })
 })
 
-favourites.post('/', function(req,res){
+router.post('/', function(req,res){
   db.favourite.findOrCreate({where: {title:req.body.title,year:req.body.year,poster:req.body.poster,imdbId:req.body.imdbID}})
   .spread(function(data,created){
     renderDB(res, created)
-  }).then(function(data){
-    res.send(data);
   })
 })
 
-favourites.post('/:id/comments', function(req,res){
+router.post('/:id/comments', function(req,res){
   db.favourite.find({where:{id:req.params.id}})
   .then(function(createdMovie){
     createdMovie.createComment({commentBody: req.body.comment})
     .then(function(createdComment){
-      console.log("this is the created comment:",createdComment)
       res.send(createdComment)
     })
   })
 })
 
-favourites.get('/:id/comments', function(req,res){
+router.get('/:id/comments', function(req,res){
   db.favourite.find({where:{id:req.params.id}})
   .then(function(createdMovie){
     db.comment.findAll({where:{favouriteId:createdMovie.id}})
@@ -70,13 +65,16 @@ favourites.get('/:id/comments', function(req,res){
     })
   })
 })
-favourites.delete("/:id", function(req,res) {
+
+router.delete("/:id", function(req,res) {
   db.favourite.find({where:{id:req.params.id}}).then(function(data){
     var data = data.get();
     db.favourite.destroy({where:{id:data.id}}).then(function() {
+      console.log("this is the id",data.id)
+      db.comment.destroy({where: {favouriteId:data.id}})
       res.send({result:true})
     });
   })
 });
 
-module.exports = favourites;
+module.exports = router;

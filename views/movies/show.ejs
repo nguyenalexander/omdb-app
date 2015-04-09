@@ -12,7 +12,19 @@
           <div class="row">
            <div class="col-sm-4 right">
             <div class="item movie-item">
-              <span class="fav-glyph-after glyphicon"></span>
+            <% if (favourited) { %>
+              <span class="fav-glyph-after glyphicon glyphicon-star"></span>
+              <div class="fav-button">
+                <form class="form favourite-form" action="/favourites/">
+                  <input type="hidden" name="imdbID" value="<%= imdbID %>">
+                  <input type="hidden" name="title" value="<%= Title %>">
+                  <input type="hidden" name="year" value="<%= Year %>">
+                  <input type="hidden" name="poster" value="<%= Poster %>">
+                  <span class="fav-glyph glyphicon glyphicon-star-empty" style="display:none;"></span>
+                </form>
+              </div>
+            <% } else { %>
+              <span class="fav-glyph-after glyphicon glyphicon-star" style="display:none;"></span>
               <div class="fav-button">
                 <form class="form favourite-form" action="/favourites/">
                   <input type="hidden" name="imdbID" value="<%= imdbID %>">
@@ -22,6 +34,7 @@
                   <span class="fav-glyph glyphicon glyphicon-star-empty"></span>
                 </form>
               </div>
+            <% } %>
               <div class="poster">
                 <img class="posters" src="<%=Poster%>">
                 <div class="overlay overlay-movie">
