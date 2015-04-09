@@ -6,7 +6,8 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        models.comment.belongsTo(models.favourite)
+        models.comment.belongsTo(models.globalfavourite),
+        models.comment.belongsTo(models.user)
       }
     }
   });

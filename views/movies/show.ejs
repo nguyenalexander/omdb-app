@@ -15,7 +15,7 @@
             <% if (favourited) { %>
               <span class="fav-glyph-after glyphicon glyphicon-star"></span>
               <div class="fav-button">
-                <form class="form favourite-form" action="/favourites/">
+                <form class="form favourite-form" action="/globalfavourites/">
                   <input type="hidden" name="imdbID" value="<%= imdbID %>">
                   <input type="hidden" name="title" value="<%= Title %>">
                   <input type="hidden" name="year" value="<%= Year %>">
@@ -26,7 +26,7 @@
             <% } else { %>
               <span class="fav-glyph-after glyphicon glyphicon-star" style="display:none;"></span>
               <div class="fav-button">
-                <form class="form favourite-form" action="/favourites/">
+                <form class="form favourite-form" action="/globalfavourites/">
                   <input type="hidden" name="imdbID" value="<%= imdbID %>">
                   <input type="hidden" name="title" value="<%= Title %>">
                   <input type="hidden" name="year" value="<%= Year %>">

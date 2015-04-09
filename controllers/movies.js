@@ -22,10 +22,8 @@ router.get('/:id', function(req,res){
   var url = "http://www.omdbapi.com/?i="+idQueryString+"&tomatoes=true&plot=full";
   request(url, function(error, response, body){
     if (!error && response.statusCode == 200){
-
-
     var movieData = JSON.parse(body);
-    db.favourite.find({where: {imdbId:movieData.imdbID}})
+    db.globalfavourite.find({where: {imdbId:movieData.imdbID}})
       .then(function(movie){
         if (movie) {
           movieData.favourited = true;
@@ -44,9 +42,9 @@ router.get('/:id', function(req,res){
 })
 
 router.delete('/:id', function(req,res){
-  db.favourite.find({where:{imdbId:req.params.id}}).then(function(data){
+  db.globalfavourite.find({where:{imdbId:req.params.id}}).then(function(data){
     var data = data.get();
-    db.favourite.destroy({where:{imdbId:data.imdbId}}).then(function(movieData) {
+    db.globalfavourite.destroy({where:{imdbId:data.imdbId}}).then(function(movieData) {
       console.log('this is the id', data.id)
       db.comment.destroy({where: {favouriteId:data.id}})
     });

@@ -11,18 +11,18 @@
       <% favourites.favourite.forEach(function(obj) { %>
       <div class="item">
         <div class="dlt-overlay">
-          <a href="/favourites/<%=obj.id%>">
+          <a href="/globalfavourites/<%=obj.id%>">
             <div class="form-group">
-              <a href="/favourites/<%=obj.id%>" class="dlt-btn btn"><i class="glyphicon glyphicon-remove"></i></a>
+              <a href="/globalfavourites/<%=obj.id%>" class="dlt-btn btn"><i class="glyphicon glyphicon-remove"></i></a>
             </div>
           </a>
         </div>
         <div class="comment-overlay">
-          <form class="form comments-form" action="/favourites/<%=obj.id%>/comments">
+          <form class="form comments-form" action="/globalfavourites/<%=obj.id%>/comments">
             <span class="glyphicon glyphicon-edit"></span>
           </form>
         </div>
-        <a class="poster" href="/favourites/<%=obj.id%>">
+        <a class="poster" href="/globalfavourites/<%=obj.id%>">
           <img class="posters" src="<%=obj.poster%>">
           <div class="overlay">
             <h2><%=obj.title%></h2>

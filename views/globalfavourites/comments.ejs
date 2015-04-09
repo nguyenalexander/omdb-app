@@ -12,7 +12,7 @@
   <div class="row favourites-row">
     <div class="col-sm-4">
       <div class="item comment-item">
-        <a class="poster" href="/favourites/<%=data.id%>">
+        <a class="poster" href="/globalfavourites/<%=data.id%>">
           <img class="posters" src="<%=data.poster%>">
           <div class="overlay">
             <h2><%=data.title%></h2>
@@ -36,7 +36,7 @@
      </div>
    </section>
    <section class="input">
-    <form class="form comment-submit" action="/favourites/<%=data.id%>/comments" type="submit">
+    <form class="form comment-submit" action="/globalfavourites/<%=data.id%>/comments" type="submit">
       <div class="form-group">
         <input class="form-control comment-form" name="comment" type="text" placeholder="Submit a comment here">
       </div>

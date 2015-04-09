@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        models.favourite.hasMany(models.comment, {onDelete:'cascade'})
+        models.favourite.belongsTo(models.user)
       }
     }
   });

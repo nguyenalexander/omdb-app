@@ -22,7 +22,8 @@ app.get('/', function(req,res){
 
 app.use('/main', require('./controllers/main'))
 app.use('/movies', require('./controllers/movies'));
-app.use('/favourites', require('./controllers/favourites'));
+app.use('/globalfavourites', require('./controllers/globalfavourites'));
+app.use('/auth',require('./controllers/auth.js'));
 
 app.listen(process.env.PORT || 3001, function(){
   console.log("Hello, server is up and running.");

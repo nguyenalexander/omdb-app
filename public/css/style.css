@@ -13,6 +13,9 @@
 .item {
   display: inline-block;
   padding-bottom: 5px;
+  -webkit-box-shadow: -10px 10px 21px 1px rgba(107,107,107,0.82);
+  -moz-box-shadow: -10px 10px 21px 1px rgba(107,107,107,0.82);
+  box-shadow: -10px 10px 21px 1px rgba(107,107,107,0.82);
 }
 
 .comment-item {
